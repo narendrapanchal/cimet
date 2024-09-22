@@ -1,0 +1,79 @@
+body{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+#popup{
+    height: 400px;
+    width: 400px;  
+    box-shadow: 10px 10px 5px #aaaaaa;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    display: none;
+}
+#popup > input{
+    height: 30px;
+    font-size: 30px;
+    border: none;
+    border-bottom: 1px solid black;
+    margin-top: -50px;
+}
+#popup > input:focus{
+    outline: none;
+}
+
+#popup> div:nth-child(1){
+    display: flex;
+    justify-content: end;
+    align-items: end;
+
+}
+#cancel{
+    border: none;
+    font-size: 40px;
+    background-color: none;
+    background: none;
+    cursor: pointer;
+}
+.buttons{
+    display: grid;
+    grid-template-columns: 40% 40%;
+    justify-content: space-between;
+    padding: 20px;
+}
+.buttons > button{
+    padding: 10px;
+    border-radius: 30px;
+    border: none;
+    color: white;
+    font-size: 20px;
+    cursor: pointer;
+}
+.buttons > button:nth-child(1){
+background-color: red;
+}
+.buttons > button:nth-child(2){
+    background: green;
+}
+
+#names{
+    display: flex;
+    box-shadow: 10px 10px 5px #aaaaaa;
+    padding: 20px;
+    min-width: 400px;
+    justify-content: end;
+    flex-wrap: wrap;
+
+}
+#names > div{
+    font-size: 60px;
+    border-radius: 50%;
+    border: 2px solid gray;
+    padding: 20px;
+    cursor: pointer;
+}
+.disabled:hover{
+    cursor: not-allowed;
+}
