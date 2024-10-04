@@ -1,0 +1,47 @@
+* {
+  margin: 0px;
+  padding: 0px;
+  font-size: 16px;
+  box-sizing: border-box;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+body {
+  background-color: #00000040;
+  background: #00000040;
+  background: #04152d;
+  min-height: 100vh;
+}
+input {
+  text-decoration: none;
+}
+button {
+  cursor: pointer;
+}
+.container {
+  max-width: 1320px;
+  margin: auto;
+}
+.show-in-one-line {
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+svg + span {
+  transform: translate(60px, -50px);
+  display: block;
+}
+.gradient button {
+  transition: "background-color 0.5s ease";
+}
+.infinite-scroll {
+  padding-top: 100px;
+  max-width: 1320px;
+  margin: auto;
+}
+.search-heading {
+  color: white;
+  margin-left: 20px;
+  font-size: 30px;
+}

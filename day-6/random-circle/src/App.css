@@ -1,0 +1,15 @@
+.buttons{
+  position:absolute;
+}
+.dynamic-div{
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+}
+.random-component{
+  width: 100vw;
+  height: 100vh;
+  position: absolute;
+  z-index: -1
+}

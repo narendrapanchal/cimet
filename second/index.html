@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Person</title>
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+    <h1>Add Person</h1>
+    <form id="addPersonForm">
+        <input type="text" id="firstName" name="firstName" placeholder="First Name" required>
+        <input type="text" id="lastName" name="lastName" placeholder="Last Name" required>
+        <select id="countryName">
+            <option value="">Select Country</option>
+            <option value="India">India</option>
+            <option value="Australia">Australia</option>
+        </select>
+        <input type="number" id="number" name="number" min="1" placeholder="number" required>
+        <input type="submit" value="Add">
+    </form>
+    <div id="dataList">
+
+    </div>
+    
+    <script src="index.js"></script>
+</body>
+</html>

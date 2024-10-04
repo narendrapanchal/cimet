@@ -1,0 +1,45 @@
+.popup-overlay-list {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.popup-list {
+    background-color: white; /* Background color of the popup */
+    padding: 20px;
+    border-radius: 8px; /* Rounded corners */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3); /* Shadow effect */
+    width: max-content;
+    text-align: center;
+    display: flex;
+    justify-content: end;
+    align-items: end;
+    vertical-align: middle;
+}
+.popup-list > div{
+    width: 50px;
+    height: 50px;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid black;
+    display: flex;
+    border-radius: 50%;
+}
+.popup-list > div button{
+    background: #f44336;
+color: white;
+font-size: 20px;
+font-weight: bold;
+border: none;
+border-radius: 50%;
+padding: 2px 8px;
+position: absolute;
+margin-top: -40px;
+margin-left: 20px;
+}

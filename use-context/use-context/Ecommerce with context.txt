@@ -1,0 +1,7 @@
+APIs:
+https://fakestoreapi.com/products
+https://jsonplaceholder.typicode.com/posts
+
+
+Create Slider component, Single Product Page, Single Blog Page as well
+

@@ -1,0 +1,12 @@
+.handleCancel{
+
+}
+.handleCancel button{
+background: #f44336;
+color: white;
+font-size: 30px;
+font-weight: bold;
+border: none;
+border-radius: 50%;
+padding: 10px 20px;
+}

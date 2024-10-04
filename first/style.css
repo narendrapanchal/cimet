@@ -1,0 +1,40 @@
+#options {
+    display: grid;
+    grid-template-columns: 20% 20%;
+    grid-gap: 20px 40px;
+    list-style: number;
+}
+
+#options>li {
+    background-color: green;
+    padding: 10px;
+    border-radius: 20px;
+    color: white;
+    list-style-type: upper-alpha;
+}
+
+.selected {
+    background-color: yellow;
+    color: black;
+}
+
+li::marker {
+    color: black;
+}
+
+.head {
+    display: grid;
+    grid-template-columns: 20% 20%;
+    grid-gap: 20px 40px;
+    list-style: number;
+
+}
+
+li:hover {
+    cursor: pointer;
+
+}
+
+.disable>li:hover {
+    cursor: not-allowed;
+}

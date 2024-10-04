@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    const awards=[
+        {name:"James Peebles",category:"Javelin",team:"MI",year:2019},
+        {name:"Michel Mayor",category:"Javelin",team:"GT",year:2019},
+        {name:"Didier Queloz",category:"Javelin",team:"GT",year:2019},
+        {name:"John B. Goodenough",category:"Shooting",team:"CSK",year:2019},
+        {name:"M. Stanley Whittingham",category:"Shooting",team:"CSK",year:2019},
+        {name:"Akira Yoshino",category:"Shooting",team:"CSK",year:2019},
+        {name:"Aethur Ashkin",category:"Javelin",team:"PW",year:2018},
+        {name:"Gerard Mourou",category:"Javelin",team:"DC",year:2018},
+        {name:"Donna Strickland",category:"Javelin",team:"DC",year:2018},
+        {name:"Frances H. Arnold",category:"Shooting",team:"KKR",year:2018},
+        {name:"George P. Smith",category:"Shooting",team:"SH",year:2018},
+        {name:"Sir Gregory P. Winter",category:"Shooting",team:"SH",year:2018},
+    ];
+    console.log(JSON. stringify(calculatePrizes(awards), null, 2) );
+    function calculatePrizes(awards){
+       const obj= awards.reduce((acc,ele)=>{
+            const year_category=ele.year+"_"+ele.category;
+            if(acc[year_category]==null){
+                acc[year_category]={
+                    [ele.team]:[ele.name]
+                }
+            }else{
+                if(acc[year_category][ele.team]==null){
+                    acc[year_category][ele.team]=[ele.name];
+                }else{
+                    acc[year_category][ele.team].push(ele.name)
+                }
+            }
+            return acc
+        },{});
+        let prizes=[];
+        for(k in obj){
+            const  [year, category]=k.split("_");
+            let winners=[];
+            for(key in obj[k]){
+                const totalTeams=Object.keys(obj[k]).length;
+                for(let i=0;i<obj[k][key].length;i++){
+                    const totalMember=obj[k][key].length;
+                    winners.push({name:obj[k][key][i],share:+((1/(totalTeams))/totalMember).toFixed(2)})
+                }
+            }
+            prizes.push({category,year:+year,winners});
+            
+        }
+        return prizes;
+    }
+    </script>
+</html>

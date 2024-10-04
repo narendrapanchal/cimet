@@ -1,0 +1,2 @@
+API:https://pokeapi.co/api/v2/pokemon?limit=20&offset=0
+Flip Effect: https://www.w3schools.com/howto/howto_css_flip_card.asp

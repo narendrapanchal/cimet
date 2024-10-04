@@ -1,0 +1,9 @@
+#dynamicCircle{
+    position: absolute;
+    height: 100vh;
+    width: 100vw;
+}
+.buttons{
+    position: absolute;
+    z-index: 1;
+}
