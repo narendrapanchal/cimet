@@ -16,14 +16,21 @@
     this.running=0;
   }
   runFunction(){
-    this.running++;
-    task=this.queue.shift();
+    if(this.queue.length>0){
+        this.running++;
+    const task=this.queue[0];
+    this.queue=this.queue.slice(1,this.queue.length-1)
     task().then((res)=>{
         this.running--;
-        this.runFunction()
+        if(this.queue.length>0){
+            this.runFunction()
+        }
+        
     })
+    }
+  
   }
-  async push(task) {
+   push(task) {
     
     if(this.running<this.concurrency){
      this.running++;
