@@ -10,8 +10,8 @@ function Home() {
   return (
     <div>
       <h1 className='text-3xl'>Welcome to Image Generator</h1>
-      <Form setList={setList}/>
-      {list.length>0&&<Carousel images={list}/>}
+      
+      {list.length>0?<><Carousel images={list}/></>:<Form setList={setList}/>}
     </div>
   )
 }

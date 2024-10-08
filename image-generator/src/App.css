@@ -1,25 +1,15 @@
 .carousel {
-    position: relative;
-    overflow: hidden;
-  }
-  
-  .carousel img {
-    width: 100%; /* Ensure images fit properly */
-    transition: transform 0.5s ease; /* Smooth transition */
-  }
-  
-  .carousel.next img {
-    transform: translateX(100%); /* Move out to the right */
-  }
-  
-  .carousel.prev img {
-    transform: translateX(-100%); /* Move out to the left */
-  }
-  
-  .carousel.next img {
-    transform: translateX(0); /* Reset position */
-  }
-  
-  .carousel.prev img {
-    transform: translateX(0); /* Reset position */
-  }
+  position: relative;
+  overflow: hidden;
+}
+
+.carousel div {
+  display: flex;
+  transition: scroll-behavior 0.5s ease;
+  overflow: scroll;
+  flex-wrap: nowrap; /* Add smooth scroll transition */
+}
+
+.carousel img {
+  object-fit: cover; /* Maintain aspect ratio */
+}
