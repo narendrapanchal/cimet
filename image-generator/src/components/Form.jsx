@@ -5,6 +5,7 @@ function Form({setList}) {
   const [limit,setLimit]=useState(10);
   const [search,setSearch]=useState("");
   const [orientation,setOrientation]=useState("landscape");
+  const [random,setRandom]=useState(false);
   const handleSubmit=(e)=>{
     e.preventDefault();
     if(search.length==0){
@@ -32,11 +33,20 @@ function Form({setList}) {
 
   return (
        <form onSubmit={handleSubmit}>
-      <input type="text" placeholder='Search Images' className='border border-teal-900 p-2' onChange={(e)=>{
+      {!random&&<input value={search} type="text" placeholder='Search Images' className='border border-teal-900 p-2' onChange={(e)=>{
         setSearch(e.target.value)
-      }}/>
+      }}/>}
+      
+      <br/>
+      {search.length===0&&<>
+      <label name="Random Image">Get Random Images</label>
+      <input type="checkbox" value="random" checked={random || search.length===0} onChange={((e)=>{
+        setRandom(e.target.checked)
+      })}/>
+      </>}
+
         <br/>
-      <input required type="number" min={1} max={100} placeholder='Search Images' className='border border-teal-900 p-2' onChange={(e)=>{
+      <input required type="number" value={limit} min={1} max={100} placeholder='Search Images' className='border border-teal-900 p-2' onChange={(e)=>{
         console.log(e.target.value)
         setLimit(e.target.value)
       }}/>

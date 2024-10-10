@@ -1,15 +1,19 @@
+
 .carousel {
-  position: relative;
-  overflow: hidden;
+  overflow: hidden; /* Prevents overflow */
 }
 
-.carousel div {
+.images {
+  display: flex; 
+}
+.button-container{
+  z-index: 4;
+  position: absolute;
   display: flex;
-  transition: scroll-behavior 0.5s ease;
-  overflow: scroll;
-  flex-wrap: nowrap; /* Add smooth scroll transition */
-}
-
-.carousel img {
-  object-fit: cover; /* Maintain aspect ratio */
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  margin: auto;
+  margin-top: -20px;
+  align-self: center;
 }
