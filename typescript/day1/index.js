@@ -8,12 +8,12 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 var __generator = (this && this.__generator) || function (thisArg, body) {
-    var _ = { label: 0, sent: function() { if (t[0] & 1) throw t[1]; return t[1]; }, trys: [], ops: [] }, f, y, t, g = Object.create((typeof Iterator === "function" ? Iterator : Object).prototype);
-    return g.next = verb(0), g["throw"] = verb(1), g["return"] = verb(2), typeof Symbol === "function" && (g[Symbol.iterator] = function() { return this; }), g;
+    var _ = { label: 0, sent: function() { if (t[0] & 1) throw t[1]; return t[1]; }, trys: [], ops: [] }, f, y, t, g;
+    return g = { next: verb(0), "throw": verb(1), "return": verb(2) }, typeof Symbol === "function" && (g[Symbol.iterator] = function() { return this; }), g;
     function verb(n) { return function (v) { return step([n, v]); }; }
     function step(op) {
         if (f) throw new TypeError("Generator is already executing.");
-        while (g && (g = 0, op[0] && (_ = 0)), _) try {
+        while (_) try {
             if (f = 1, y && (t = op[0] & 2 ? y["return"] : op[0] ? y["throw"] || ((t = y["return"]) && t.call(y), 0) : y.next) && !(t = t.call(y, op[1])).done) return t;
             if (y = 0, t) op = [op[0] & 2, t.value];
             switch (op[0]) {
@@ -75,32 +75,34 @@ function fetchData() {
                                 switch (_a.label) {
                                     case 0:
                                         pokemonApiUrl = res.next;
-                                        requests = res.results.map(function (_a) { return __awaiter(_this, [_a], void 0, function (_b) {
-                                            var res, pokemonDetails, pokemon;
-                                            var url = _b.url;
-                                            return __generator(this, function (_c) {
-                                                switch (_c.label) {
-                                                    case 0: return [4 /*yield*/, fetch(url)];
-                                                    case 1:
-                                                        res = _c.sent();
-                                                        return [4 /*yield*/, res.json()];
-                                                    case 2:
-                                                        pokemonDetails = _c.sent();
-                                                        pokemon = {
-                                                            name: pokemonDetails.name,
-                                                            id: pokemonDetails.id,
-                                                            image: pokemonDetails.sprites.front_default,
-                                                            types: pokemonDetails.types.map(function (_a) {
-                                                                var type = _a.type;
-                                                                pokemonTypesObject[type.name.toLowerCase()] = 1;
-                                                                return type.name.toLowerCase();
-                                                            }).join(" ")
-                                                        };
-                                                        pokemonData.push(pokemon);
-                                                        return [2 /*return*/, pokemon];
-                                                }
+                                        requests = res.results.map(function (_a) {
+                                            var url = _a.url;
+                                            return __awaiter(_this, void 0, void 0, function () {
+                                                var res, pokemonDetails, pokemon;
+                                                return __generator(this, function (_b) {
+                                                    switch (_b.label) {
+                                                        case 0: return [4 /*yield*/, fetch(url)];
+                                                        case 1:
+                                                            res = _b.sent();
+                                                            return [4 /*yield*/, res.json()];
+                                                        case 2:
+                                                            pokemonDetails = _b.sent();
+                                                            pokemon = {
+                                                                name: pokemonDetails.name,
+                                                                id: pokemonDetails.id,
+                                                                image: pokemonDetails.sprites.front_default,
+                                                                types: pokemonDetails.types.map(function (_a) {
+                                                                    var type = _a.type;
+                                                                    pokemonTypesObject[type.name.toLowerCase()] = 1;
+                                                                    return type.name.toLowerCase();
+                                                                }).join(" ")
+                                                            };
+                                                            pokemonData.push(pokemon);
+                                                            return [2 /*return*/, pokemon];
+                                                    }
+                                                });
                                             });
-                                        }); });
+                                        });
                                         return [4 /*yield*/, Promise.all(requests)];
                                     case 1:
                                         _a.sent();
@@ -124,7 +126,7 @@ function fetchData() {
 }
 function displayData(pokemonData) {
     if (selectedValue != null) {
-        pokemonData = pokemonData.filter(function (pokemon) { return pokemon.types.split(" ").includes(selectedValue); });
+        pokemonData = pokemonData.filter(function (pokemon) { return pokemon.types.includes(selectedValue); });
     }
     if (searchValue != null) {
         pokemonData = pokemonData.filter(function (pokemon) { return pokemon.name.toLowerCase().includes(searchValue); });
@@ -139,10 +141,6 @@ function displayData(pokemonData) {
     });
 }
 function addSelectTypes() {
-    var option = document.createElement('option');
-    option.text = "Select Type";
-    option.value = "";
-    select.append(option);
     Object.keys(pokemonTypesObject).forEach(function (type) {
         var option = document.createElement('option');
         option.text = type;
