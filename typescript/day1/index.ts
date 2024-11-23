@@ -22,11 +22,17 @@ button.addEventListener('click',async():Promise<void>=>{
         button.textContent='Load more';
     }
 })
-
+interface urlList{
+    url:string
+}
+interface responseData{
+    next:string,
+    results:urlList[]
+}
 async function fetchData():Promise<void>{
     if(!isLoading&&pokemonApiUrl!=null){
         isLoading=true;
-        await fetch(pokemonApiUrl).then((res):Promise<any>=>res.json()).then(async(res:{next:string,results:{url:string}[]}):Promise<void>=>{
+        await fetch(pokemonApiUrl).then((res:Response)=>res.json()).then(async (res:responseData):Promise<void>=>{
             pokemonApiUrl=res.next;
             let requests=res.results.map(async({url}):Promise<PokemonDataInterface>=> {
                 let res:Response=await fetch(url);
@@ -83,17 +89,13 @@ function displayData(pokemonData:PokemonDataInterface[]):void{
           <h2>${pokemon.name}</h2>
             <p>Types: ${pokemon.types}</p>
         </div>
-      </div>z
+      </div>
      `;
         pokemonContainer.appendChild(div);
     });
 }
 
 function addSelectTypes(){
-    let option=document.createElement('option')as HTMLOptionElement;
-        option.text="Select Type";
-        option.value="";
-        select.append(option);
     Object.keys(pokemonTypesObject).forEach(type=>{
         let option=document.createElement('option')as HTMLOptionElement;
         option.text=type;

@@ -1,17 +1,8 @@
 {
     "compilerOptions": {
       "target": "es5",                        // This can remain as is if you need to support ES5
-      "module": "commonjs",
-      "strict": true,
-      "esModuleInterop": true,
-      "skipLibCheck": true,
-      "forceConsistentCasingInFileNames": true,
-      "outDir": "./dist",
-      "rootDir": "./src",
-      "noImplicitAny": true,
       "lib": ["es2015", "dom","es2016"]               // Ensure 'es2015' is included
     },
-    "include": ["src/**/*"],
     "exclude": ["node_modules", "**/*.spec.ts"]
   }
   
